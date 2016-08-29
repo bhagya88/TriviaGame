@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Geography Trivia</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Caesar+Dressing|Kanit|Ubuntu+Mono" rel="stylesheet">
+
 </head>
 <body>
-Geography Quiz
+	<header>Geography Trivia</header>
+	<div class="container">
+		<div id="timer" class="row">timer</div>
+		<div id="start" class="row page">
+			<button id="btnStart">Start</button>
+		</div>
+		<div id="question" class="row page">
+			<span id="ques"></span><br>
+			 <input type="radio" name="userAnswer" value="option"><br>
+  			 <input type="radio" name="userAnswer" value="female"><br> 
+             <input type="radio" name="userAnswer" value="other"><br>
+             <input type="radio" name="userAnswer" value="other">
+		</div>
+		<div id="answer" class="row page">answer</div>
+		<div id="result" class="row page">result<br><button id="btnRestart">Restart</button></div>
+	</div>
+
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
 </body>
 </html>

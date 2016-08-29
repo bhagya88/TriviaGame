@@ -1,0 +1,27 @@
+body{
+	 background-image: url("../images/world.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+     color:black;
+	font-family: 'Kanit', sans-serif;
+	font-size:50px;
+}
+
+header{
+	height:100px;
+	background:yellow;
+}
+
+#timer{
+height:100px;
+background: pink;
+}
+.page{
+height:500px;
+background: white;
+border:2px solid green;	
+text-align: center;
+vertical-align: middle;
+}
