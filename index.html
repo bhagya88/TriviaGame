@@ -9,24 +9,34 @@
 </head>
 <body>
 	<header>Geography Trivia</header>
-	<div class="container">
-		<div id="timer" class="row">timer</div>
-		<div id="start" class="row page">
+	<div id="main" class="container">
+		<div id="timer" class="row sub-header">timer</div>
+		<div id="start" class="row page-sub-header">
 			<button id="btnStart">Start</button>
 		</div>
 		<div id="question" class="row page">
-			<span id="ques"></span><br>
-			 <input type="radio" name="userAnswer" value="option"><br>
-  			 <input type="radio" name="userAnswer" value="female"><br> 
-             <input type="radio" name="userAnswer" value="other"><br>
-             <input type="radio" name="userAnswer" value="other">
+			<span id="ques"></span>
+			<div id="options">
+				<p class="option">opt1</p>
+				<p class="option">opt2</p>
+				<p class="option">opt3</p>
+				<p class="option">opt4</p>
+			</div>
+  			 
 		</div>
-		<div id="answer" class="row page">answer</div>
-		<div id="result" class="row page">result<br><button id="btnRestart">Restart</button></div>
+		<div id="answer" class="row page">
+			<div id="msg1">msg1</div>
+			<div id="msg2">msg2</div>
+			<div><img id="picture" class="img-box" src=""></div>
+		</div>
+		<div id="result" class="row page">
+			<p></p>
+			<button id="btnRestart">Restart</button>
+		</div>
 	</div>
 
 	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	<<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </body>
 </html>

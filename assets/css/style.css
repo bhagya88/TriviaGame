@@ -7,21 +7,32 @@ body{
      color:black;
 	font-family: 'Kanit', sans-serif;
 	font-size:50px;
+	text-align: center;
 }
 
 header{
 	height:100px;
 	background:yellow;
+	line-height: 100px;
+
 }
 
-#timer{
-height:100px;
-background: pink;
+.sub-header{
+	height:100px;
+	background: white;
+}
+.page-sub-header{
+	height:600px;
+	background: white;
 }
 .page{
-height:500px;
-background: white;
-border:2px solid green;	
-text-align: center;
-vertical-align: middle;
+	height:500px;
+	background: white;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.img-box{
+	width:300px;
+	height:300px;
 }
