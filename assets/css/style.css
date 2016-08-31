@@ -8,9 +8,10 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
      background-size: cover;
+     background-repeat:   no-repeat;
      color:black;
 	font-family: 'Kanit', sans-serif;
-	font-size:50px;
+	font-size:30px;
 	text-align: center;
 
 }
@@ -32,7 +33,7 @@ header{
 	height:10%;
 	background: rgb(213,112,105);
 	text-align:right;
-	font-size:30px;
+	font-size:20px;
     color:black;
 }
 .page-sub-header{
