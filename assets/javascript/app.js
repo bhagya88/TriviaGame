@@ -18,10 +18,10 @@ $(document).ready(function(){
 					question:"What is the capital of Argentina?",
 					answerIndex:0,
 					options:["Buenos Aires","Lima","Rio","Trinidad"],
-					pic:"rio.jpg"},
+					pic:"buenos.jpg"},
 					{
 					question:"Mt Rainier is located in this state.",
-					answerIndex:2,
+					answerIndex:3,
 					options:["Texas","Oregon","Montana","Washigton"],
 					pic:"rainier.jpg"},
 					{
@@ -44,8 +44,6 @@ $(document).ready(function(){
 	    $('#msg2').html("");
 
 	}
-
-	
 
 	function startQuiz(){
 		$('#start').hide();	
@@ -98,7 +96,7 @@ $(document).ready(function(){
 				$('#answer').hide();
 				$('#question').show();
 				
-				timeRemaining =3;
+				timeRemaining =10;
 				questionIntervalId = setInterval(decrementTimer,1000);
 			}else{
 				getResult();
@@ -107,7 +105,6 @@ $(document).ready(function(){
 		
 
 	function getAnswer(){
-
 	
 		$('#question').hide();
 		console.log("before show");
@@ -115,7 +112,7 @@ $(document).ready(function(){
 		$('#main').append($('#answer'));
 		console.log("after show");
 		clearInterval(questionIntervalId);
-		setTimeout(getQuestion,2000);
+		setTimeout(getQuestion,5000);
 		
 	}
 
@@ -146,6 +143,7 @@ $(document).ready(function(){
 		console.log("inside result");
 		$('#answer').hide();
 		$('#result').show();
+		$('#timer').hide();
 		$('#main').append($('#result'));
 		$('#result>p').html('<p>correct answers: '+correctAnswers+'</p><p>wrong answers: '+wrongAnswers+'</p><p>Unanswered: '+unanswered+'</p');
 	}
@@ -162,7 +160,4 @@ $(document).ready(function(){
 	$('#btnStart').click(startQuiz);
 	$('#options').on('click','.option',checkAndGetAnswer);
 	$('#btnRestart').click(restartQuiz);
-
-
-
 });
