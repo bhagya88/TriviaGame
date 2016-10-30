@@ -6,15 +6,15 @@ The theme for this game is `Geography`. It is a fun quizz developed using Javasc
 
 ### How it works
 
-* When the player starts the game, he is presented with a timed question. The player answers it or their time runs out.
+* When the player starts the game, he is presented with a timed question(10 seconds). The player answers it or his time runs out.
 
-* If the player selects the correct answer, it shows a screen congratulating them for choosing the right option. After a few seconds, displays the next question -- it does this without user input.
+* If the player selects the correct answer, it shows a screen congratulating him for choosing the right option. After 10 seconds, displays the next question -- it does this without any user input.
 
 * The scenario is similar for wrong answers and time-outs.
-  * If the player runs out of time, it tells the player that time's up and displays the correct answer. After waiting a few seconds, it shows the next question.
-  * If the player chooses the wrong answer, it tells the player they selected the wrong option and then display the correct answer. . After waiting a few seconds, it shows the next question.
+  * If the player runs out of time, it tells the player that time's up and displays the correct answer. After waiting for 5 seconds, it shows the next question.
+  * If the player chooses the wrong answer, it tells the player that he selected the wrong option and then displays the correct answer. After waiting for 5 seconds, it shows the next question.
 
-* When questins are over, it shows the results screen which gives the summary of correct answers, incorrect answers, and  unanswered questions. After waiting for a few seconds, payer is given an option to restart the game (without reloading the page).
+* When questions are over, it shows the results screen which gives the summary of correct answers, incorrect answers, and  unanswered questions. After waiting for a 5 seconds, player is given an option to restart the game (without reloading the page).
 
 #### Developed by Bhagya
 
