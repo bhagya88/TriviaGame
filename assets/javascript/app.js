@@ -12,28 +12,26 @@ $(document).ready(function(){
 					question:"Where is Taj Mahal?",
 					answerIndex:1,
 					options:["Pakistan","India","Tibet","Indonesia"],
-					pic:"tajmahal.jpg",
-					status:'not yet guessed'
+					pic:"tajmahal.jpg"
 					},
 					{ 
 					question:"What is the capital of Argentina?",
 					answerIndex:0,
 					options:["Buenos Aires","Lima","Rio","Trinidad"],
-					pic:"buenos.jpg",
-					status:'not yet guessed'},
+					pic:"buenos.jpg"
+					},
 					{
 					question:"Mt Rainier is located in this state.",
 					answerIndex:3,
 					options:["Texas","Oregon","Montana","Washigton"],
-					pic:"rainier.jpg",
-					status:'not yet guessed'
+					pic:"rainier.jpg"
 					},
 					{
 					question:"2016 Olympics happened in this city.",
 					answerIndex:3,
 					options:["Beiging","Tokyo","Seoul","Rio"],
-					pic:"rio.jpg",
-					status:'not yet guessed'}
+					pic:"rio.jpg"
+					}
 					];
 
 	// stores all available  question objects
