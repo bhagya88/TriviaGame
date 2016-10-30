@@ -1,42 +1,50 @@
 $(document).ready(function(){
+
+	//declare global variables
 	var timeRemaining;
 	var questionIntervalId;
 		
 	var correctAnswers;
 	var wrongAnswers;
 
-	var currentQuestionIndex;
-	var currentAnswer;
-
+	// declare questions as an array of objects
 	var questions = [{
 					question:"Where is Taj Mahal?",
 					answerIndex:1,
 					options:["Pakistan","India","Tibet","Indonesia"],
-					pic:"tajmahal.jpg"
+					pic:"tajmahal.jpg",
+					status:'not yet guessed'
 					},
 					{ 
 					question:"What is the capital of Argentina?",
 					answerIndex:0,
 					options:["Buenos Aires","Lima","Rio","Trinidad"],
-					pic:"buenos.jpg"},
+					pic:"buenos.jpg",
+					status:'not yet guessed'},
 					{
 					question:"Mt Rainier is located in this state.",
 					answerIndex:3,
 					options:["Texas","Oregon","Montana","Washigton"],
-					pic:"rainier.jpg"},
+					pic:"rainier.jpg",
+					status:'not yet guessed'
+					},
 					{
 					question:"2016 Olympics happened in this city.",
 					answerIndex:3,
 					options:["Beiging","Tokyo","Seoul","Rio"],
-					pic:"rio.jpg"}
+					pic:"rio.jpg",
+					status:'not yet guessed'}
 					];
-	var q = [];
 
+	// stores all available  question objects
+	var availableQuestions; 
 
+	// sets values for variables
 	function initializeQuiz(){
-		for(var i = 0; i<questions.length; i++){
-			q.push(i);
-		}
+
+		// copy all questions into available questions
+		availableQuestions = questions.slice();
+		
 		$('#timer').show();
 	    correctAnswers = 0;
 	    wrongAnswers = 0;
@@ -45,54 +53,58 @@ $(document).ready(function(){
 
 	}
 
+	// starts the quiz by initializing variables and settting the current question
 	function startQuiz(){
 		$('#start').hide();	
 	    initializeQuiz();	
 		getQuestion();
 	}
 
+	// handles cleanup before restart and starts quiz
 	function restartQuiz(){
 		$('#result').hide();	
 	    initializeQuiz();
 	    getQuestion();	
 	}
 
+	// decrements timer and handles timeup
 	function decrementTimer(){
 		
 		timeRemaining--;
 
 		$('#timer').html("<p>Time remaining: "+timeRemaining+" sec."+"</p>");
-		console.log("inside decrement timer");
+		
 		if(timeRemaining === 0 && questionIntervalId){
 			console.log("Timeup");
 			$('#msg1').html("Time is up!");
-			$('#msg2').html("The correct answer is "+currentAnswer);
-			console.log(questions[currentQuestionIndex].pic);
-			$('#picture').attr("src","assets/images/"+questions[currentQuestionIndex].pic);
+			$('#msg2').html("The correct answer is "+currentQuestion.options[currentQuestion.answerIndex]);
+			
+			$('#picture').attr("src","assets/images/"+currentQuestion.pic);
 			getAnswer();
 			return;
 		}
 	}
 
+	// gets a random question from available questions and shows question page
 	function getQuestion(){
 
-			if(q.length>0){
-
-				var randomNum = Math.floor(Math.random()*q.length);
-				currentQuestionIndex = q[randomNum];
-
-				console.log("Random number",randomNum);
-				var currentQuestion=questions[currentQuestionIndex].question;
-				currentAnswer = questions[currentQuestionIndex].options[questions[currentQuestionIndex].answerIndex];
+			if(availableQuestions.length>0){
+				// generate random number
+				var randomNum = Math.floor(Math.random()*availableQuestions.length);
+				// set current question
+				currentQuestion = availableQuestions[randomNum];
+								
+				// show answer options on page
+				$('.option').eq(0).html(currentQuestion.options[0]);
+				$('.option').eq(1).html(currentQuestion.options[1]);
+				$('.option').eq(2).html(currentQuestion.options[2]);
+				$('.option').eq(3).html(currentQuestion.options[3]);
 				
-				$('.option').eq(0).html(questions[currentQuestionIndex].options[0]);
-				$('.option').eq(1).html(questions[currentQuestionIndex].options[1]);
-				$('.option').eq(2).html(questions[currentQuestionIndex].options[2]);
-				$('.option').eq(3).html(questions[currentQuestionIndex].options[3]);
-				
-				q.splice(randomNum,1);
-				console.log("arr",q);
-				$('#ques').html(currentQuestion);
+				// removes current question from available questions
+				availableQuestions.splice(randomNum,1);
+
+			
+				$('#ques').html(currentQuestion.question);
 				$('#answer').hide();
 				$('#question').show();
 				
@@ -103,7 +115,7 @@ $(document).ready(function(){
 			}
 	}
 		
-
+	// gets the answer page
 	function getAnswer(){
 	
 		$('#question').hide();
@@ -116,27 +128,29 @@ $(document).ready(function(){
 		
 	}
 
+	// checks the answer selection by user is correct or not 
 	function checkAndGetAnswer(){
 
 		selectedOption=$(this).html();
 		
 
-		if(selectedOption === currentAnswer){
+		if(selectedOption === currentQuestion.options[currentQuestion.answerIndex]){
 			console.log("you chose correct answer",selectedOption);
 			$('#msg1').html("You got it!");
 			$('#msg2').html("");
 			correctAnswers++;
 		}else{
 			$('#msg1').html("Oops!");
-			$('#msg2').html("The correct answer is "+currentAnswer);
+			$('#msg2').html("The correct answer is "+ currentQuestion.options[currentQuestion.answerIndex]);
 			console.log("you chose wrong answer",selectedOption);
 			wrongAnswers++;
 		}
-		console.log(questions[currentQuestionIndex].pic);
-		$('#picture').attr("src","assets/images/"+questions[currentQuestionIndex].pic);
+		console.log(currentQuestion.pic);
+		$('#picture').attr("src","assets/images/"+currentQuestion.pic);
 		getAnswer();
 	}
 
+	// shows the result page
 	function getResult(){
 
 		var unanswered = questions.length-correctAnswers-wrongAnswers;
@@ -152,6 +166,7 @@ $(document).ready(function(){
 
 	console.log(questions);
 
+	// hides question page, answer page and result page 
 	$('#question').hide();
 	$('#answer').hide();
 	$('#result').hide();
