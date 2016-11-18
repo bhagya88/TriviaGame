@@ -1,8 +1,22 @@
 # TriviaGame
-The theme for this game is `Geography`. It is a fun quizz developed using Javascript, JQuery, HTML5, CSS3 and Bootstrap. 
+
+### Overview
+It is a fun triva quizz where the user gets to answer timed questions.The theme for this game is `Geography`.
 
 ### Demo
 [Click Here to Watch the Demo](https://powerful-crag-56077.herokuapp.com)
+
+### Technologies used
+* Javascript, JQuery
+* HTML5, CSS3 and Bootstrap. 
+
+### Challenges faced
+* How to make timed questions?
+* How to swith between questions page, answer page and results page?
+
+### Solutions found
+* setTimer and setInterval functions helped solve the problem.
+* JQuery DOM manipulations functions helped to switch between screens.
 
 ### How it works
 
